@@ -3,8 +3,10 @@ const helmet = require('helmet')
 const app = express();
 //hide powereby by Express header
 app.use(helmet.hidePoweredBy())
-//prevents website from being framed
+//Mitigate the Risk of Clickjacking with helmet.frameguard()
 app.use(helmet.frameguard({action: 'deny'}))
+//Mitigate the Risk of Cross Site Scripting (XSS) Attacks with helmet.xssFilter() 
+app.use(helmet.xssFilter({}))
 
 
 
