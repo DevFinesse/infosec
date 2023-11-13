@@ -1,8 +1,10 @@
 const express = require('express');
 const helmet = require('helmet')
 const app = express();
+//hide powereby by Express header
 app.use(helmet.hidePoweredBy())
-
+//prevents website from being framed
+app.use(helmet.frameguard({action: 'deny'}))
 
 
 
