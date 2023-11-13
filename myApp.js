@@ -18,7 +18,10 @@ app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}))
 app.use(helmet.dnsPrefetchControl())
 //Disable Client-Side Caching with helmet.noCache()
 app.use(helmet.noCache())
-
+//Set a Content Security Policy with helmet.contentSecurityPolicy()
+app.use(helmet.contentSecurityPolicy({directives : {
+  defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"]
+}}))
 
 
 module.exports = app;
