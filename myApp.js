@@ -9,6 +9,8 @@ app.use(helmet.frameguard({action: 'deny'}))
 app.use(helmet.xssFilter({}))
 //Avoid Inferring the Response MIME Type with helmet.noSniff() 
 app.use(helmet.noSniff())
+//Prevent IE from Opening Untrusted HTML with helmet.ieNoOpen()
+app.use(helmet.ieNoOpen())
 
 
 
