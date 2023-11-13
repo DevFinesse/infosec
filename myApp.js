@@ -7,6 +7,8 @@ app.use(helmet.hidePoweredBy())
 app.use(helmet.frameguard({action: 'deny'}))
 //Mitigate the Risk of Cross Site Scripting (XSS) Attacks with helmet.xssFilter() 
 app.use(helmet.xssFilter({}))
+//Avoid Inferring the Response MIME Type with helmet.noSniff() 
+app.use(helmet.noSniff())
 
 
 
